@@ -42,7 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CodigoTextBox = new System.Windows.Forms.TextBox();
             this.PedidosDataGridView = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.SubTotalTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -78,7 +78,8 @@
             this.IdentidadMaskedTextBox.Mask = "#### - #### - #####";
             this.IdentidadMaskedTextBox.Name = "IdentidadMaskedTextBox";
             this.IdentidadMaskedTextBox.Size = new System.Drawing.Size(173, 27);
-            this.IdentidadMaskedTextBox.TabIndex = 4;
+            this.IdentidadMaskedTextBox.TabIndex = 1;
+            this.IdentidadMaskedTextBox.Tag = "";
             this.IdentidadMaskedTextBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.IdentidadMaskedTextBox_MaskInputRejected);
             // 
             // label2
@@ -111,13 +112,14 @@
             // 
             // GuardarButton
             // 
-            this.GuardarButton.Location = new System.Drawing.Point(1005, 427);
+            this.GuardarButton.Location = new System.Drawing.Point(1003, 394);
             this.GuardarButton.Margin = new System.Windows.Forms.Padding(5);
             this.GuardarButton.Name = "GuardarButton";
-            this.GuardarButton.Size = new System.Drawing.Size(101, 35);
-            this.GuardarButton.TabIndex = 3;
-            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.Size = new System.Drawing.Size(101, 60);
+            this.GuardarButton.TabIndex = 6;
+            this.GuardarButton.Text = "Agregar Otro Pedido";
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // groupBox2
             // 
@@ -171,7 +173,7 @@
             this.DescripcionTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(235, 27);
-            this.DescripcionTextBox.TabIndex = 2;
+            this.DescripcionTextBox.TabIndex = 4;
             // 
             // label4
             // 
@@ -189,7 +191,7 @@
             this.CodigoTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.CodigoTextBox.Name = "CodigoTextBox";
             this.CodigoTextBox.Size = new System.Drawing.Size(132, 27);
-            this.CodigoTextBox.TabIndex = 0;
+            this.CodigoTextBox.TabIndex = 3;
             this.CodigoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodigoTextBox_KeyPress);
             // 
             // PedidosDataGridView
@@ -201,7 +203,6 @@
             this.PedidosDataGridView.BackgroundColor = System.Drawing.Color.DarkGray;
             this.PedidosDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PedidosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PedidosDataGridView.Enabled = false;
             this.PedidosDataGridView.Location = new System.Drawing.Point(2, 466);
             this.PedidosDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PedidosDataGridView.Name = "PedidosDataGridView";
@@ -209,14 +210,14 @@
             this.PedidosDataGridView.Size = new System.Drawing.Size(1111, 225);
             this.PedidosDataGridView.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // FechaDateTimePicker
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(985, 14);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(122, 27);
-            this.dateTimePicker1.TabIndex = 6;
+            this.FechaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaDateTimePicker.Location = new System.Drawing.Point(985, 14);
+            this.FechaDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FechaDateTimePicker.Name = "FechaDateTimePicker";
+            this.FechaDateTimePicker.Size = new System.Drawing.Size(122, 27);
+            this.FechaDateTimePicker.TabIndex = 6;
             // 
             // label6
             // 
@@ -232,6 +233,7 @@
             this.SubTotalTextBox.Location = new System.Drawing.Point(14, 427);
             this.SubTotalTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.SubTotalTextBox.Name = "SubTotalTextBox";
+            this.SubTotalTextBox.ReadOnly = true;
             this.SubTotalTextBox.Size = new System.Drawing.Size(132, 27);
             this.SubTotalTextBox.TabIndex = 6;
             // 
@@ -260,6 +262,7 @@
             this.ImpuestoTextBox.Location = new System.Drawing.Point(176, 427);
             this.ImpuestoTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.ImpuestoTextBox.Name = "ImpuestoTextBox";
+            this.ImpuestoTextBox.ReadOnly = true;
             this.ImpuestoTextBox.Size = new System.Drawing.Size(132, 27);
             this.ImpuestoTextBox.TabIndex = 9;
             // 
@@ -278,6 +281,7 @@
             this.TotalTextBox.Location = new System.Drawing.Point(342, 427);
             this.TotalTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.TotalTextBox.Name = "TotalTextBox";
+            this.TotalTextBox.ReadOnly = true;
             this.TotalTextBox.Size = new System.Drawing.Size(132, 27);
             this.TotalTextBox.TabIndex = 11;
             // 
@@ -293,7 +297,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.SubTotalTextBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.FechaDateTimePicker);
             this.Controls.Add(this.PedidosDataGridView);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.GuardarButton);
@@ -328,7 +332,7 @@
         private System.Windows.Forms.DataGridView PedidosDataGridView;
         private System.Windows.Forms.TextBox CantidadTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker FechaDateTimePicker;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.MaskedTextBox IdentidadMaskedTextBox;
         private System.Windows.Forms.TextBox SubTotalTextBox;

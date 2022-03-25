@@ -60,7 +60,7 @@ namespace Examen_SegundoParcial
 
         private void FrmProductos_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmUsuarios = null;
+            frmProducto = null;
         }
 
         private void PedidoToolStripButton_Click(object sender, EventArgs e)

@@ -72,7 +72,9 @@ namespace Examen_SegundoParcial
                 detallePedido.SubTotal = producto.Precio * Convert.ToInt32(CantidadTextBox.Text);
                 detallePedido.ISV = detallePedido.SubTotal * 0.15M;
                 detallePedido.Total = detallePedido.SubTotal + detallePedido.ISV;
-
+                detallePedido.IdentidadCliente = IdentidadMaskedTextBox.Text;
+                detallePedido.Cliente = NombreTextBox.Text;
+                detallePedido.Fecha = FechaDateTimePicker.Value;
 
                 subTotal += detallePedido.SubTotal;
                 isv = subTotal * 0.15M;
@@ -86,6 +88,22 @@ namespace Examen_SegundoParcial
                 PedidosDataGridView.DataSource = null;
                 PedidosDataGridView.DataSource = detallePedidosLista;
             }
+        }
+
+        private void LimpiarControles()
+        {
+            CodigoTextBox.Clear();
+            DescripcionTextBox.Clear();
+            NombreTextBox.Clear();
+            IdentidadMaskedTextBox.Clear();
+            CantidadTextBox.Clear();
+
+        }
+
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();
+            IdentidadMaskedTextBox.Focus();
         }
     }
 }
